@@ -55,7 +55,7 @@ class InteractiveRecord
   def self.find_by(attribute)
     where_val = []
     attribute.each do |key, val|
-      where_val << "#{key.to_s} = #{val.to_s}"
+      where_val << "#{key.to_s} = '#{val.to_s}''"
     end
     where_val.join(" AND ")
     sql = "SELECT * FROM #{self.table_name} WHERE #{where_val};"
