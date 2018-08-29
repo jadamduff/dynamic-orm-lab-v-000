@@ -53,11 +53,9 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute)
-    where_val = []
     attribute.each do |key, val|
       where_val << "#{key} = '#{val}'"
     end
-    where_val.join(" AND ")
     sql = "SELECT * FROM #{self.table_name} WHERE #{where_val};"
     DB[:conn].execute(sql)
   end
