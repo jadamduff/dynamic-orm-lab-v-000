@@ -55,7 +55,7 @@ class InteractiveRecord
   def self.find_by(attribute)
     col = nil
     value = nil
-    attribute.each do |key, val|
+    attribute.each do |val, key|
       col = key.downcase
       value = val
     end
