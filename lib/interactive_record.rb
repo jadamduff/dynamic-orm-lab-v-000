@@ -14,11 +14,11 @@ class InteractiveRecord
     columns = []
     table_info = DB[:conn].execute(sql)
     table_info.each do |col|
-      columns << col[:name]
+      columns << col['name']
     end
     columns.compact
   end
 
-  
+
 
 end
