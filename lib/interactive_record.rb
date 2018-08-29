@@ -57,8 +57,8 @@ class InteractiveRecord
     attribute.each do |key, val|
       where_val << "#{key.to_s} = #{val.to_s}"
     end
-    where_val.join(" AND "")
-    sql = "SELECT * FROM #{self.table_name} WHERE #{col} = #{value};"
+    where_val.join(" AND ")
+    sql = "SELECT * FROM #{self.table_name} WHERE #{where_val};"
     DB[:conn].execute(sql)
   end
 
