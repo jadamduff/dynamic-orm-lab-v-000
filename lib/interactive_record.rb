@@ -53,12 +53,11 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute)
-    col = nil
-    value = nil
-    attribute.each do |val, key|
-      col = key.to_s.downcase
-      value = val
+    where_val = []
+    attribute.each do |key, val|
+      where_val << "#{key.to_s} = #{val.to_s}"
     end
+    where_val.join(" AND "")
     sql = "SELECT * FROM #{self.table_name} WHERE #{col} = #{value};"
     DB[:conn].execute(sql)
   end
