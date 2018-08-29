@@ -52,4 +52,14 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
+  def self.find_by(attribute)
+    col = nil
+    value = nil
+    attribute.each do |key, val|
+      col = key
+      value = val
+    end
+    sql = "SELECT * FROM #{table_name_for_insert} WHERE #{col} = #{value};"
+  end
+
 end
