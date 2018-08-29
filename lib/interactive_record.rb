@@ -59,7 +59,7 @@ class InteractiveRecord
       col = key
       value = val
     end
-    sql = "SELECT * FROM #{table_name_for_insert} WHERE #{col} = #{value};"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{col} = #{value};"
     DB[:conn].execute(sql)
   end
 
