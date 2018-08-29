@@ -56,7 +56,7 @@ class InteractiveRecord
     col = nil
     value = nil
     attribute.each do |val, key|
-      col = key.downcase.to_s
+      col = key.to_s.downcase
       value = val
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{col} = #{value};"
